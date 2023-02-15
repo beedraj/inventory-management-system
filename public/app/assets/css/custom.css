@@ -1,0 +1,41 @@
+
+.images{
+    width:470px ;
+    height:350px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px black;
+    transition: all 0.7s ease-in-out;
+}
+.images:hover{
+    transform: scale(1.05);
+}
+.image_alignment{
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 50%;
+    margin-left: 15px;
+    margin-bottom: 25px;
+}
+.product_ttl{
+    font-size: 32px;
+    color: red;
+    margin-top: 30px;
+}
+.discount_price_style{
+    font-size: 22px;
+    color: rgb(255, 0, 200);
+
+}
+.button_style{
+height: 15px;
+width: 30px;
+background-color: red;
+padding: 10px;
+border-radius: 8px;
+transition: all 0.7s ease-in-out;
+}
+.button_style:hover{
+    box-shadow: 0 0 10px black;
+    color: yellow;
+    
+}

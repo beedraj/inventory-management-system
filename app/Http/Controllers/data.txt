@@ -1,0 +1,51 @@
+  // dd($request->all());
+        $request->validate([
+
+            'email' => 'required|email',
+            'password' => 'required|min:8'
+        ]);
+        // dd($request->all());
+        if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+            $user = Auth::user();
+            if ($user->type == '1') {
+
+                return redirect('admin/dashboard')->with('success', 'You are Logged in sucessfully.');
+            } else {
+                return redirect('/');
+            }
+        } else {
+            return redirect('login');
+        }
+
+
+        // public function adminLogout(Request $request)
+        // {
+        //     auth()->guard('admin')->logout();
+        //     Session::flush();
+        //     Session::put('success', 'You are logout sucessfully');
+        //     return redirect(route('adminLogin'));
+
+
+
+        // $user = User::where('email', '=',$request->email)->first();
+        // if($user){
+        //     if(Hash::check($request->password,$user->password) &&($user->type=='1' )){
+
+
+        //         $request->session()->put('loginId', $user->id);
+        //         // dd('hh');
+        //         return redirect('dashboard');
+
+        //     }
+        //     else if(Hash::check($request->password,$user->password) &&($user->type=='0' ) ){
+        //         $request->session()->put('loginId', $user->id);
+        //         return redirect('/');
+
+        //     }
+        //     else{
+        //         return redirect('login')->with('fail', 'wrong password ');
+        //     }
+
+        // }else{
+        //     return back()->with('fail', 'this email is not registered');
+        // }
